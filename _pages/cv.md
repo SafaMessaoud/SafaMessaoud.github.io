@@ -62,12 +62,6 @@ Languages
 ======
 * Arabic (fluent), French (fluent), English (fluent), German (fluent)
 
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-
 Service and leadership
 ======
 * **(Meta) Reviewer** — ECCV, NeurIPS, AAAI, ICLR (2023, 2024, 2025).

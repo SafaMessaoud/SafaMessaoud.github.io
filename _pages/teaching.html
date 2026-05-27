@@ -7,6 +7,32 @@ author_profile: true
 
 {% include base_path %}
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
+<style>
+.teaching-list {
+  list-style: disc outside;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+.teaching-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.55;
+}
+.teaching-list .t-code-name {
+  font-weight: 700;
+}
+.teaching-list .t-institution {
+  font-style: italic;
+}
+</style>
+
+<ul class="teaching-list">
+{% assign sorted_teaching = site.teaching | sort: 'date' | reverse %}
+{% for post in sorted_teaching %}
+  <li>
+    <span class="t-code-name">{% if post.code %}{{ post.code }}: {% endif %}{{ post.name | default: post.title }}</span>
+    {% if post.role %} {{ post.role }},{% endif %}
+    {% if post.institution %} <span class="t-institution">{{ post.institution }}</span>,{% endif %}
+    {% if post.term %} {{ post.term }}{% endif %}
+  </li>
 {% endfor %}
+</ul>

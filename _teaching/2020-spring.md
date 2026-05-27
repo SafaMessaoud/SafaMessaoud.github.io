@@ -3,10 +3,10 @@ title: "CS 446: Machine Learning"
 collection: teaching
 code: "CS 446"
 name: "Machine Learning"
-role: "Teaching Assistant"
+role: "Head Teaching Assistant"
 institution: "University of Illinois at Urbana-Champaign"
-term: "Spring 2019"
-permalink: /teaching/2019-spring-cs446
-date: 2019-01-01
-order: 6
+term: "Spring 2020"
+permalink: /teaching/2020-spring-cs446
+date: 2020-01-01
+order: 8
 ---
