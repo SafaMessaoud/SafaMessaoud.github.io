@@ -11,6 +11,9 @@ main:
   - title: "Publications"
     url: /publications/
 
+  - title: "CV"
+    url: /cv/
+
   - title: "Projects"
     url: /projects/
 
@@ -22,6 +25,3 @@ main:
 
   - title: "Grants & Awards"
     url: /awards/
-
-  - title: "CV"
-    url: /cv/

@@ -58,37 +58,14 @@ Internships
   * Built the buggy-based electric car *eCARus*; designed PCBs for the battery management system.
 * **Intern**, Siemens Corporate Technology, Munich, Germany — Jul–Oct 2008
 
-Patents
-======
-* **Medical Record Problem List Generation.** Murthy V. Devarakonda, Safa Messaoud, Ching-Huei Tsou. *U.S. Patent.*
-* **Accelerating Genomic Data Parsing on Field Programmable Gate Arrays.** Safa Messaoud, Takeshi Ogasawara. *U.S. Patent.*
-
-Skills
-======
-* **Programming languages (SW):** Python, MATLAB, C, C++
-* **Programming languages (HW):** Verilog, VHDL, OpenCL
-* **Deep learning frameworks:** PyTorch, TensorFlow
-
 Languages
 ======
 * Arabic (fluent), French (fluent), English (fluent), German (fluent)
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
 
 Talks
 ======
   <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
 Service and leadership

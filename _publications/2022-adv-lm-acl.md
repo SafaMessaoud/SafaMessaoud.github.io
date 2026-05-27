@@ -1,10 +1,13 @@
 ---
-title: "Impact of adversarial training on robustness and generalizability of language models"
+title: "Impact of Adversarial Training on Robustness and Generalizability of Language Models"
 collection: publications
 category: conferences
 permalink: /publication/2022-adv-lm
-excerpt: 'A study of how adversarial training affects robustness and generalization in pretrained language models.'
+authors: "E. Altinisik, H. Sajjad, H.T. Sencar, S. Messaoud, S. Chawla"
 date: 2022-05-22
-venue: 'Findings of the Association for Computational Linguistics (ACL Findings)'
-citation: 'Enes Altinisik, Hassan Sajjad, Husrev Taha Sencar, Safa Messaoud, Sanjay Chawla. (2022). &quot;Impact of adversarial training on robustness and generalizability of language models.&quot; <i>Findings of ACL</i>.'
+year: 2022
+venue: "Findings of the Association for Computational Linguistics (ACL Findings)"
+venue_short: "Findings of ACL"
+excerpt: 'A study of how adversarial training affects robustness and generalization in pretrained language models.'
+citation: 'E. Altinisik, H. Sajjad, H.T. Sencar, S. Messaoud, S. Chawla. (2022). &quot;Impact of Adversarial Training on Robustness and Generalizability of Language Models.&quot; <i>Findings of ACL</i>.'
 ---

@@ -6,31 +6,114 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap" style="margin-bottom: 1.25rem;">You can also find my articles on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.</div>
 {% endif %}
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
+<style>
+.pub-list {
+  list-style: disc outside;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+.pub-list li.pub-item {
+  margin-bottom: 1.15rem;
+  line-height: 1.55;
+}
+.pub-list li.pub-item .pub-title {
+  font-style: italic;
+}
+.pub-list li.pub-item .pub-me {
+  font-weight: 700;
+}
+.pub-list li.pub-item .pub-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-left: 0.15rem;
+  margin-top: 0.25rem;
+  vertical-align: middle;
+}
+.pub-list li.pub-item .pub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--global-border-color, #e6e6e6);
+  background: var(--global-bg-color, #fff);
+  color: var(--global-link-color, #2f7f93) !important;
+  text-decoration: none !important;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+  line-height: 1;
+}
+.pub-list li.pub-item .pub-link:hover {
+  background: var(--global-link-color, #2f7f93);
+  border-color: var(--global-link-color, #2f7f93);
+  color: #fff !important;
+}
+.pub-list li.pub-item .pub-link i { font-size: 0.85rem; }
+.pub-list li.pub-item .pub-note {
+  font-weight: 700;
+  margin-left: 0.35rem;
+}
+.pub-section-title {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+</style>
+
+{% comment %} Render publications grouped by the categories declared in _config.yml. {% endcomment %}
 {% if site.publication_category %}
-  {% for category in site.publication_category  %}
+  {% for category in site.publication_category %}
     {% assign title_shown = false %}
     {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
+      {% if post.category != category[0] %}{% continue %}{% endif %}
       {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
+        <h2 class="pub-section-title">{{ category[1].title }}</h2><hr />
+        <ul class="pub-list">
         {% assign title_shown = true %}
       {% endunless %}
-      {% include archive-single.html %}
+
+      {% assign authors_html = post.authors | default: "" | replace: "S. Messaoud", "<span class='pub-me'>S. Messaoud</span>" | replace: "Safa Messaoud", "<span class='pub-me'>Safa Messaoud</span>" %}
+      {% assign venue_str = post.venue_short | default: post.venue %}
+      {% assign year_str  = post.year | default: post.date | date: "%Y" %}
+
+      <li class="pub-item">
+        {{ authors_html }};
+        <a class="pub-title" href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>;
+        {{ venue_str }};
+        {{ year_str }}
+        <span class="pub-links">
+          {% if post.paperurl %}<a class="pub-link" href="{{ post.paperurl }}" target="_blank" rel="noopener" title="Paper"><i class="fas fa-file-pdf" aria-hidden="true"></i>PDF</a>{% endif %}
+          {% if post.bibtexurl %}<a class="pub-link" href="{{ post.bibtexurl }}" target="_blank" rel="noopener" title="BibTeX"><i class="fas fa-quote-right" aria-hidden="true"></i>Bib</a>{% endif %}
+          {% if post.code_url %}<a class="pub-link" href="{{ post.code_url }}" target="_blank" rel="noopener" title="Code"><i class="fas fa-code" aria-hidden="true"></i>Code</a>{% endif %}
+          {% if post.projecturl %}<a class="pub-link" href="{{ post.projecturl }}" target="_blank" rel="noopener" title="Project page"><i class="fas fa-globe" aria-hidden="true"></i>Project</a>{% endif %}
+          {% if post.slidesurl %}<a class="pub-link" href="{{ post.slidesurl }}" target="_blank" rel="noopener" title="Slides"><i class="fas fa-display" aria-hidden="true"></i>Slides</a>{% endif %}
+        </span>
+        {% if post.note %}<span class="pub-note">({{ post.note }})</span>{% endif %}
+      </li>
     {% endfor %}
+    {% if title_shown %}</ul>{% endif %}
   {% endfor %}
 {% else %}
+  <ul class="pub-list">
   {% for post in site.publications reversed %}
-    {% include archive-single.html %}
+    {% assign authors_html = post.authors | default: "" | replace: "S. Messaoud", "<span class='pub-me'>S. Messaoud</span>" %}
+    {% assign venue_str = post.venue_short | default: post.venue %}
+    {% assign year_str  = post.year | default: post.date | date: "%Y" %}
+    <li class="pub-item">
+      {{ authors_html }};
+      <a class="pub-title" href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>;
+      {{ venue_str }};
+      {{ year_str }}
+      {% if post.note %}<span class="pub-note">({{ post.note }})</span>{% endif %}
+    </li>
   {% endfor %}
+  </ul>
 {% endif %}
-
-
-
