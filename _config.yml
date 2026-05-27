@@ -26,7 +26,7 @@ author:
   avatar           : "safa.jpg"
   name             : "Safa Messaoud"
   pronouns         : # example: "she/her"  
-  bio              : "Research Scientist" <br> "MenaML co-founder & co-director"
+  bio              : "Research Scientist<br>MenaML co-founder & co-director"
   location         : "Doha, Qatar"
   employer         : "Qatar Computing research Institute"
   uri              : # URL
