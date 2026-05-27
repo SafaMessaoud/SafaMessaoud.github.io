@@ -7,67 +7,116 @@ author_profile: true
 
 {% include base_path %}
 
-A selection of research projects across generative modeling, reinforcement learning, safe AI, healthcare analytics, and systems. Each item links to the corresponding publication or patent.
+A selection of **recent and ongoing** projects. Click a card for more details.
 
-Generative Models & Reinforcement Learning
-======
-* **SVGD Scalability & Entropy Estimation.** Studied whether the entropy of arbitrary distributions known only up to a normalization constant can be tractably estimated via Stein Variational Gradient Descent.
-  *(Under submission, 2025.)* — See [publication]({{ base_path }}/publication/2025-svgd-entropy).
+<style>
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+@media (max-width: 900px)  { .project-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .project-grid { grid-template-columns: 1fr; } }
 
-* **S2AC: Stein Soft Actor-Critic.** Proposed a new variational distribution leveraging Stein Variational Gradient Descent dynamics that enables learning multi-modal policies for Max-Entropy Reinforcement Learning.
-  *ICLR 2024.* — See [publication]({{ base_path }}/publication/2024-s2ac).
+.project-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none !important;
+  color: inherit !important;
+  border: 1px solid var(--global-border-color, #e6e6e6);
+  border-radius: 8px;
+  background: var(--global-bg-color, #fff);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-color: var(--global-link-color, #52adc8);
+}
 
-* **DeepQAMVS — Query-Aware Multi-Video Summarization.** A reinforcement-learning method that trains a pointer network with hierarchical attention, achieving state-of-the-art results on query-aware multi-video summarization.
-  *ACM SIGIR 2021; DRL4IR 2021 (Oral).* — See [publication]({{ base_path }}/publication/2021-deepqamvs).
+.project-card__image {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  display: block;
+  background: #f3f4f6;
+}
 
-* **Learned Heuristics for Graphical Model Inference.** A reinforcement-learning engine for inference in energy-based models with traditionally intractable higher-order potentials, applied to semantic segmentation.
-  *CVPR 2020 (Oral); WiCV 2020 (Oral); DeepVision 2020.* — See [publication]({{ base_path }}/publication/2020-graphical-model-rl).
+.project-card__body {
+  padding: 1rem 1.1rem 1.15rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
-* **Diverse & Controllable Image Colorization.** Extended Gaussian conditional random fields, traditionally unimodal and pairwise, to model multi-modal distributions with high-order dependencies — enabling exact inference and runtime constraints.
-  *ECCV 2018; WiML 2017.* — See [publication]({{ base_path }}/publication/2018-diverse-colorization).
+.project-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 .35rem 0;
+  color: var(--global-base-color, #2f7f93);
+}
 
-Large Language Models
-======
-* **Fanar — Arabic-Centric Multimodal Generative AI Platform.** Contributor to QCRI's Fanar platform, an Arabic-centric multimodal foundation model spanning language, speech, and vision.
-  *arXiv 2501.13944, 2025.* — See [technical report]({{ base_path }}/publication/2025-fanar).
+.project-card__status {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(82, 173, 200, 0.12);
+  color: var(--global-link-color, #2f7f93);
+  margin-bottom: 0.55rem;
+  align-self: flex-start;
+}
 
-Safe & Robust AI (Adversarial Training)
-======
-* **Intrinsic Dimensionality in Adversarial Training.** Explains how the intrinsic dimensionality of the data manifold drives the robustness–generalization tradeoff in adversarially trained models.
-  *ICML 2025.* — See [publication]({{ base_path }}/publication/2025-intrinsic-dim-adv).
+.project-card__excerpt {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--global-text-color, #444);
+  margin: 0 0 .6rem 0;
+  flex: 1;
+}
 
-* **A3T — Accuracy-Aware Adversarial Training.** Improves the robustness/generalization tradeoff by leveraging the data's intrinsic dimensionality and misclassification accuracy.
-  *Machine Learning journal, 2023 — selected among top 3 papers.* — See [publication]({{ base_path }}/publication/2023-a3t).
+.project-card__more {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--global-link-color, #52adc8);
+  margin-top: auto;
+}
 
-* **Adversarial Training in Language Models.** Studies how adversarial training affects robustness and generalization in pretrained language models.
-  *Findings of ACL 2022.* — See [publication]({{ base_path }}/publication/2022-adv-lm).
+.project-card__more::after { content: " \2192"; }
+.project-card[data-external="true"] .project-card__more::after { content: " \2197"; }
+</style>
 
-Healthcare Analytics
-======
-* **Disease-Based Problem List Generation.** Variants of autoencoders that learn customized features per disease category for problem-list generation from electronic medical records. *U.S. Patent.* — See [patent]({{ base_path }}/publication/patent-medical-record).
+{% assign sorted_projects = site.projects | sort: 'order' %}
 
-* **Transcriptomic Analysis of Alzheimer's.** Unsupervised technique to identify genes that discriminate temporal-cortex expression data of Alzheimer patients from control subjects.
-  *AAIC 2017.* — See [publication]({{ base_path }}/publication/2017-alzheimer).
+<div class="project-grid">
+{% for project in sorted_projects %}
+  {% if project.external_url %}
+    {% assign link_url = project.external_url %}
+    {% assign external = "true" %}
+    {% assign more_label = "Visit site" %}
+  {% else %}
+    {% assign link_url = project.url | relative_url %}
+    {% assign external = "false" %}
+    {% assign more_label = "More" %}
+  {% endif %}
 
-* **Reaction–Diffusion Modelling for Microphysiometry.** Extended a 3D finite-element simulation of diffusion and metabolic reaction in cellular specimens, with a model of the sensor effect, validated experimentally.
-  *Med. Biol. Eng. Comput., 2013.* — See [publication]({{ base_path }}/publication/2013-reaction-diffusion).
-
-Automated Tools for Cyber-Physical Systems
-======
-* **Aircraft Electrical Power Systems Synthesis.** Two optimization-oriented methodologies to synthesize cost-effective and reliable aircraft electrical power-system topologies: (1) Mixed Integer–Linear Programming modulo reliability; (2) ILP with an approximate reliability algebra. *M.S. thesis at UC Berkeley.*
-
-* **SIMULINK → SIGNAL Translator.** A semantic translator from discrete-time SIMULINK models into SIGNAL programs, enabling correct-by-design and multi-threaded code generation.
-  *e-TI, 2015.* — See [publication]({{ base_path }}/publication/2015-simulink-signal).
-
-Computer Architecture (FPGA)
-======
-* **FPGA Accelerator for Genomic Data Parsing.** SAM → BAM conversion accelerated 10× over a single-threaded software baseline.
-  *U.S. Patent.* — See [patent]({{ base_path }}/publication/patent-genomic-fpga).
-
-* **FPGA Monitor Aggregator for "Invasive Computing".** A resource-aware scheduling monitor for multicore architectures, designed at TUM's Integrated Systems department.
-
-Community & Education
-======
-* **[MenaML](https://www.menaml.com/) — Middle East and North Africa Machine Learning Winter School.** Co-founder and co-director of a regional ML education initiative that brings together students, researchers, and leading scientists across MENA.
-
-* **Mentorship Platform.** Lead PI on a *Social Innovation Fund* project (QAR 50,000) building a platform for professional roadmap construction, sharing, and merging.
+  <a class="project-card" data-external="{{ external }}" href="{{ link_url }}"{% if project.external_url %} target="_blank" rel="noopener"{% endif %}>
+    {% if project.image %}
+      <img class="project-card__image" src="{{ project.image | relative_url }}" alt="{{ project.title | escape }}" loading="lazy">
+    {% endif %}
+    <div class="project-card__body">
+      {% if project.status %}<span class="project-card__status">{{ project.status }}</span>{% endif %}
+      <h3 class="project-card__title">{{ project.title }}</h3>
+      <p class="project-card__excerpt">{{ project.excerpt }}</p>
+      <span class="project-card__more">{{ more_label }}</span>
+    </div>
+  </a>
+{% endfor %}
+</div>
