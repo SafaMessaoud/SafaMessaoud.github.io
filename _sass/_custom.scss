@@ -1,0 +1,15 @@
+/* ==========================================================================
+   CUSTOM OVERRIDES — site-specific tweaks layered on top of the theme
+   ========================================================================== */
+
+/* Show the avatar in its natural rectangular shape (no oval crop). */
+.author__avatar img {
+  border-radius: 4px;           // subtle rounded corners; set to 0 for fully square
+  padding: 0;
+  border: none;
+
+  @include breakpoint($large) {
+    padding: 0;
+    border: none;
+  }
+}
