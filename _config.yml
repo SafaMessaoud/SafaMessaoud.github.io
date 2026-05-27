@@ -8,11 +8,11 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "sunrise" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Safa Messaoud"
 title_separator          : "-"
 name                     : &name "Safa Messaoud"
-description              : &description ""   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "Personal website of Safa Messaoud — Research Scientist at Qatar Computing Research Institute and Co-founder of MenaML."
 url                      : https://SafaMessaoud.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -25,10 +25,10 @@ author:
   # Biographic information
   avatar           : "safa.JPG"
   name             : "Safa Messaoud"
-  pronouns         : # example: "she/her"  
-  bio              : "Research Scientist<br>MenaML Co-founder & Co-director"
+  pronouns         : # example: "she/her"
+  bio              : "AI Scientist<br>MenaML Co-founder & Co-director"
   location         : "Doha, Qatar"
-  employer         : "Qatar Computing research Institute"
+  employer         : "Qatar Computing Research Institute"
   uri              : # URL
   email            : "smessaoud AT hbku DOT edu DOT qa" 
 
@@ -81,12 +81,14 @@ author:
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
-  books:
-    title: 'Books'
-  manuscripts:
-    title: 'Journal Articles'    
+  preprints:
+    title: 'Preprints & Under Submission'
   conferences:
     title: 'Conference Papers'
+  manuscripts:
+    title: 'Journal Articles'
+  patents:
+    title: 'Patents'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
