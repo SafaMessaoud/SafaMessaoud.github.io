@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "-"
+title                    : "Safa Messaoud"
 title_separator          : "-"
 name                     : &name "Safa Messaoud"
 description              : &description ""   # Update this with a general description of your site, this is the default if not overridden by a page
@@ -26,7 +26,7 @@ author:
   avatar           : "safa.JPG"
   name             : "Safa Messaoud"
   pronouns         : # example: "she/her"  
-  bio              : "Research Scientist<br>MenaML co-founder & co-director"
+  bio              : "Research scientist<br>MenaML co-founder & co-director"
   location         : "Doha, Qatar"
   employer         : "Qatar Computing research Institute"
   uri              : # URL
@@ -154,7 +154,7 @@ social:
 analytics:
   provider               :  "google-analytics-4" # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
-    tracking_id          :
+    tracking_id          : "G-9JBCTNNCY5"
 
 
 # Reading Files
