@@ -1,0 +1,31 @@
+/* ==========================================================================
+   CUSTOM OVERRIDES — site-specific tweaks layered on top of the theme
+   ========================================================================== */
+
+/* Place the author-profile sidebar on the RIGHT side of the page. */
+@include breakpoint($large) {
+  #main {
+    .sidebar {
+      float: right;
+      clear: right;
+      margin-left: 0;
+    }
+
+    /* Article/page content: floats left, no left prefix (sidebar is no longer on the left) */
+    .archive,
+    .page {
+      float: left;
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+
+  /* The default theme puts the sidebar fixed at top-left when wide enough.
+     Move that fixed positioning to the right edge instead. */
+  @media screen and (min-width: $sidebar-screen-min-width) {
+    .sidebar.sticky {
+      right: 0;
+      left: auto;
+    }
+  }
+}
