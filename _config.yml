@@ -23,10 +23,10 @@ repository               : "SafaMessaoud.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "safa.jpg"
   name             : "Safa Messaoud"
   pronouns         : # example: "she/her"  
-  bio              : "Research Scientist"
+  bio              : "Research Scientist" <br> "MenaML co-founder & co-director"
   location         : "Doha, Qatar"
   employer         : "Qatar Computing research Institute"
   uri              : # URL
