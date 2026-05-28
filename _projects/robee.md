@@ -4,7 +4,7 @@ permalink: /projects/robee/
 excerpt: "An ongoing project on intelligent agents. Details coming soon."
 image: /images/projects/robee.svg
 status: "Ongoing"
-order: 2
+order: 4
 ---
 
 *Project page coming soon — details will be added shortly.*

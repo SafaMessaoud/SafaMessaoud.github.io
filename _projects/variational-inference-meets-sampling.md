@@ -4,7 +4,7 @@ permalink: /projects/variational-inference-meets-sampling/
 excerpt: "Bridging variational inference and sampling-based methods for scalable, multi-modal posterior approximation."
 image: /images/projects/vi-sampling.svg
 status: "Ongoing"
-order: 3
+order: 1
 ---
 
 This ongoing project explores the interface between **variational inference** and **sampling-based methods** (MCMC, Stein Variational Gradient Descent, diffusion-based samplers). The goal is to design algorithms that combine the speed and amortization of VI with the asymptotic correctness and multi-modality of sampling.

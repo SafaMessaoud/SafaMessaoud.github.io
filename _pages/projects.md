@@ -12,11 +12,10 @@ A selection of **recent and ongoing** projects. Click a card for more details.
 <style>
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.75rem;
   margin-top: 2rem;
 }
-@media (max-width: 900px)  { .project-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px)  { .project-grid { grid-template-columns: 1fr; } }
 
 .project-card {
