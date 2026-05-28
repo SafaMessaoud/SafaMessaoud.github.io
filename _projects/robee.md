@@ -2,7 +2,7 @@
 title: "RoBee"
 permalink: /projects/robee/
 excerpt: "A community-driven platform for collecting, merging, and sharing career roadmaps — Google Maps for career journeys."
-image: /images/projects/robee.svg
+image: /images/projects/Robee.png
 status: "Ongoing"
 order: 4
 ---

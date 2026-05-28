@@ -2,7 +2,7 @@
 title: "MenaML — MENA Machine Learning Winter School"
 permalink: /projects/menaml/
 excerpt: "A regional machine learning education and mentorship initiative bringing together students, researchers, and leading scientists across the Middle East and North Africa."
-image: /images/projects/menaml.svg
+image: /images/projects/menaml.png
 external_url: "https://www.mena.ml/"
 status: "Ongoing"
 order: 3
