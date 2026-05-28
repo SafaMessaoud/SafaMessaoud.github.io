@@ -8,6 +8,7 @@ date: 2015-01-01
 year: 2015
 venue: "e-TI (electronic journal)"
 venue_short: "e-TI"
+tags: ["Systems"]
 excerpt: 'A semantic translator that transforms discrete-time SIMULINK models into SIGNAL programs, enabling correct-by-design and multi-thread code generation.'
 citation: 'S. Messaoud, N. Saeedloei, S. Shukla. (2015). &quot;Translating Discrete Time SIMULINK to SIGNAL.&quot; <i>e-TI</i>.'
 ---

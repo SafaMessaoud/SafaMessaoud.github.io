@@ -69,6 +69,30 @@ author_profile: true
   margin-top: 2rem;
   margin-bottom: 0.5rem;
 }
+
+/* Topic tags */
+.pub-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+}
+.pub-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  line-height: 1.35;
+  border: 1px solid transparent;
+}
+.pub-tag[data-tag="reinforcement-learning"] { background: #eaf3ff; color: #1e40af; border-color: #c5d9f9; }
+.pub-tag[data-tag="energy-based-models"]    { background: #fff4e0; color: #92400e; border-color: #fcd9a3; }
+.pub-tag[data-tag="systems"]                { background: #e6f7ee; color: #047857; border-color: #b7e7c9; }
+.pub-tag[data-tag="computer-vision"]        { background: #f1ebfd; color: #5b21b6; border-color: #d6c7f5; }
+.pub-tag[data-tag="healthcare"]             { background: #fde7f1; color: #9d174d; border-color: #f7c4d8; }
+.pub-tag[data-tag="ml-safety"]              { background: #fde4e4; color: #991b1b; border-color: #f5b6b6; }
 </style>
 
 {% comment %} Render publications grouped by the categories declared in _config.yml. {% endcomment %}
@@ -104,6 +128,15 @@ author_profile: true
           {% if post.slidesurl %}<a class="pub-link" href="{{ post.slidesurl }}" target="_blank" rel="noopener" title="Slides"><i class="fas fa-display" aria-hidden="true"></i>Slides</a>{% endif %}
         </span>
         {% if post.note %}<span class="pub-note">({{ post.note }})</span>{% endif %}
+
+        {% if post.tags and post.tags.size > 0 %}
+          <div class="pub-tags">
+            {% for tag in post.tags %}
+              {% assign slug = tag | downcase | replace: " ", "-" %}
+              <span class="pub-tag" data-tag="{{ slug }}">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
       </li>
     {% endfor %}
     {% if title_shown %}</ul>{% endif %}
@@ -121,9 +154,17 @@ author_profile: true
     <li class="pub-item">
       {{ authors_html }};
       <a class="pub-title" href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>;
-      <span class="pub-venue">{{ venue_str }}</span>,
+      <span class="pub-venue">{{ venue_str }}</span>;
       {{ year_str }}
       {% if post.note %}<span class="pub-note">({{ post.note }})</span>{% endif %}
+      {% if post.tags and post.tags.size > 0 %}
+        <div class="pub-tags">
+          {% for tag in post.tags %}
+            {% assign slug = tag | downcase | replace: " ", "-" %}
+            <span class="pub-tag" data-tag="{{ slug }}">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
     </li>
   {% endfor %}
   </ul>
