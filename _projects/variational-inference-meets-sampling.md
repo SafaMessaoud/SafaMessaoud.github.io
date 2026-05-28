@@ -17,5 +17,5 @@ Topics we are currently investigating include:
 
 Relevant publications:
 
-- [Can We Compute The Entropy Of Arbitrary Distributions Known Up To A Normalization Constant? A Tale of SVGD Scalability]({{ "/publication/2025-svgd-entropy" | relative_url }}) — *Under submission, 2025.*
+- [Particles Don't Care About Z: Towards Scaling Entropy Estimation of Unnormalized Densities]({{ "/publication/2026-particles-entropy" | relative_url }}) — *ICML 2026.*
 - [S2AC: Energy-Based Reinforcement Learning with Stein Soft Actor Critic]({{ "/publication/2024-s2ac" | relative_url }}) — *ICLR 2024.*
