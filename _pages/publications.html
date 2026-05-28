@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap" style="margin-bottom: 1.25rem;">You can also find my articles on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap" style="margin-bottom: 1.25rem;">You can also find my publications on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.</div>
 {% endif %}
 
 {% include base_path %}
@@ -25,6 +25,9 @@ author_profile: true
   font-style: italic;
 }
 .pub-list li.pub-item .pub-me {
+  font-weight: 700;
+}
+.pub-list li.pub-item .pub-venue {
   font-weight: 700;
 }
 .pub-list li.pub-item .pub-links {
@@ -82,12 +85,16 @@ author_profile: true
 
       {% assign authors_html = post.authors | default: "" | replace: "S. Messaoud", "<span class='pub-me'>S. Messaoud</span>" | replace: "Safa Messaoud", "<span class='pub-me'>Safa Messaoud</span>" %}
       {% assign venue_str = post.venue_short | default: post.venue %}
-      {% assign year_str  = post.year | default: post.date | date: "%Y" %}
+      {% if post.year %}
+        {% assign year_str = post.year %}
+      {% else %}
+        {% assign year_str = post.date | date: "%Y" %}
+      {% endif %}
 
       <li class="pub-item">
         {{ authors_html }};
         <a class="pub-title" href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>;
-        {{ venue_str }};
+        <span class="pub-venue">{{ venue_str }}</span>,
         {{ year_str }}
         <span class="pub-links">
           {% if post.paperurl %}<a class="pub-link" href="{{ post.paperurl }}" target="_blank" rel="noopener" title="Paper"><i class="fas fa-file-pdf" aria-hidden="true"></i>PDF</a>{% endif %}
@@ -106,11 +113,15 @@ author_profile: true
   {% for post in site.publications reversed %}
     {% assign authors_html = post.authors | default: "" | replace: "S. Messaoud", "<span class='pub-me'>S. Messaoud</span>" %}
     {% assign venue_str = post.venue_short | default: post.venue %}
-    {% assign year_str  = post.year | default: post.date | date: "%Y" %}
+    {% if post.year %}
+      {% assign year_str = post.year %}
+    {% else %}
+      {% assign year_str = post.date | date: "%Y" %}
+    {% endif %}
     <li class="pub-item">
       {{ authors_html }};
       <a class="pub-title" href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>;
-      {{ venue_str }};
+      <span class="pub-venue">{{ venue_str }}</span>,
       {{ year_str }}
       {% if post.note %}<span class="pub-note">({{ post.note }})</span>{% endif %}
     </li>

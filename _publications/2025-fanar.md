@@ -1,7 +1,7 @@
 ---
 title: "Fanar: An Arabic-Centric Multimodal Generative AI Platform"
 collection: publications
-category: preprints
+category: technical_reports
 permalink: /publication/2025-fanar
 authors: "Fanar Team (incl. S. Messaoud)"
 date: 2025-01-24

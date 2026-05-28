@@ -81,14 +81,14 @@ author:
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
-  preprints:
-    title: 'Preprints & Under Submission'
   conferences:
     title: 'Conference Papers'
   manuscripts:
     title: 'Journal Articles'
   patents:
     title: 'Patents'
+  technical_reports:
+    title: 'Technical Reports'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews

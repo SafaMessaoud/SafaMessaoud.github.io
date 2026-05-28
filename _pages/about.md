@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Safa Messaoud"
+title: "About Me"
 author_profile: true
 redirect_from:
   - /about/
@@ -15,4 +15,4 @@ News
 ======
 - **May 2026** — Our paper [*Particles Don't Care About Z: Towards Scaling Entropy Estimation of Unnormalized Densities*](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=M2wXrP4AAAAJ&sortby=pubdate&citation_for_view=M2wXrP4AAAAJ:QIV2ME_5wuYC) is accepted at **ICML 2026**.
 - **January 2026** — The 2nd edition of **MenaML** at KAUST was a huge success. Read the coverage by [Arab News](https://www.arabnews.com/node/2629572/media).
-- **Sakina.AI** has received the **QRDI Innolight grant** (role: advisor).
+- **December 2025** — **Sakina.AI** has received the **QRDI Innolight grant** (role: advisor).
