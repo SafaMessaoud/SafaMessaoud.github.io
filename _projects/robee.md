@@ -1,5 +1,5 @@
 ---
-title: "RoBee"
+title: "RoBee: A Roadmap Building Platform for Career Journeys"
 permalink: /projects/robee/
 excerpt: "A community-driven platform for collecting, merging, and sharing career roadmaps — Google Maps for career journeys."
 image: /images/projects/Robee.png
@@ -7,6 +7,7 @@ status: "Ongoing"
 order: 4
 ---
 
+{% raw %}
 <style>
 /* Before/after slider for the origin-story image */
 .ba-slider {
@@ -17,26 +18,26 @@ order: 4
   border-radius: 6px;
   box-shadow: 0 2px 14px rgba(0,0,0,0.08);
   user-select: none;
+  -webkit-user-select: none;
   touch-action: none;
+  cursor: ew-resize;
 }
 .ba-slider img {
   display: block;
   width: 100%;
   height: auto;
-}
-.ba-slider .ba-after-wrap {
-  position: absolute;
-  inset: 0;
-  width: 50%;
-  overflow: hidden;
   pointer-events: none;
+  -webkit-user-drag: none;
 }
-.ba-slider .ba-after-wrap img {
-  width: 200%;
-  max-width: none;
+.ba-slider .ba-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: left center;
+  clip-path: inset(0 50% 0 0);
+  -webkit-clip-path: inset(0 50% 0 0);
 }
 .ba-slider .ba-handle {
   position: absolute;
@@ -46,8 +47,8 @@ order: 4
   width: 2px;
   background: #ffffff;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.18);
-  cursor: ew-resize;
   transform: translateX(-50%);
+  pointer-events: none;
 }
 .ba-slider .ba-handle::after {
   content: "";
@@ -84,6 +85,7 @@ order: 4
   padding: 0.15rem 0.55rem;
   border-radius: 999px;
   pointer-events: none;
+  z-index: 3;
 }
 .ba-slider .ba-label--before { left: 0.6rem; }
 .ba-slider .ba-label--after  { right: 0.6rem; }
@@ -115,12 +117,10 @@ order: 4
 
 <figure class="robee-hero">
   <div class="ba-slider" id="robee-ba">
-    <!-- Bottom layer: the FULL colour version -->
-    <img src="{{ '/images/projects/robee-story-colored.jpg' | relative_url }}" alt="Coloured illustration of a PhD workspace scene — student at a desk, labmate hanging a chameleon poster, bookshelf labelled DAC, DSN, Xilinx, TA Stuff.">
-    <!-- Top layer: the ORIGINAL pencil sketch, clipped to the left side -->
-    <div class="ba-after-wrap" id="robee-ba-wrap">
-      <img src="{{ '/images/projects/robee-story-original.jpg' | relative_url }}" alt="Original pencil sketch of the same workspace scene.">
-    </div>
+    <!-- Bottom layer: COLOURED version (always fully visible) -->
+    <img src="/images/projects/robee-story-colored.jpg" alt="Coloured illustration of a PhD workspace scene — student at a desk, labmate hanging a chameleon poster.">
+    <!-- Top layer: ORIGINAL pencil sketch, clipped via clip-path -->
+    <img class="ba-overlay" id="robee-ba-overlay" src="/images/projects/robee-story-original.jpg" alt="Original pencil sketch of the same workspace scene.">
     <span class="ba-label ba-label--before">Original</span>
     <span class="ba-label ba-label--after">Coloured</span>
     <div class="ba-handle" id="robee-ba-handle"></div>
@@ -129,60 +129,76 @@ order: 4
 </figure>
 
 <script>
-(function() {
-  var slider = document.getElementById('robee-ba');
-  if (!slider) return;
-  var wrap   = document.getElementById('robee-ba-wrap');
-  var handle = document.getElementById('robee-ba-handle');
-  var dragging = false;
+(function () {
+  function init() {
+    var slider  = document.getElementById('robee-ba');
+    if (!slider) return;
+    var overlay = document.getElementById('robee-ba-overlay');
+    var handle  = document.getElementById('robee-ba-handle');
+    var dragging = false;
 
-  function setPos(clientX) {
-    var rect = slider.getBoundingClientRect();
-    var x = clientX - rect.left;
-    var pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
-    wrap.style.width = pct + '%';
-    handle.style.left = pct + '%';
-    // Counter-scale the inner image so it never appears squished
-    var img = wrap.querySelector('img');
-    if (img && pct > 0) {
-      img.style.width = (100 / (pct / 100)) + '%';
+    function setPct(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      var inset = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      overlay.style.clipPath = inset;
+      overlay.style.webkitClipPath = inset;
+      handle.style.left = pct + '%';
     }
+
+    function pctFromEvent(e) {
+      var rect = slider.getBoundingClientRect();
+      var cx = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      return ((cx - rect.left) / rect.width) * 100;
+    }
+
+    function onDown(e) {
+      dragging = true;
+      setPct(pctFromEvent(e));
+      if (e.cancelable) e.preventDefault();
+    }
+    function onMove(e) {
+      if (!dragging) return;
+      setPct(pctFromEvent(e));
+      if (e.cancelable) e.preventDefault();
+    }
+    function onUp() { dragging = false; }
+
+    slider.addEventListener('mousedown', onDown);
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+    slider.addEventListener('touchstart', onDown, { passive: false });
+    document.addEventListener('touchmove', onMove, { passive: false });
+    document.addEventListener('touchend', onUp);
   }
 
-  function down(e) { dragging = true; move(e); e.preventDefault(); }
-  function up()    { dragging = false; }
-  function move(e) {
-    if (!dragging) return;
-    var cx = e.touches ? e.touches[0].clientX : e.clientX;
-    setPos(cx);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
-
-  slider.addEventListener('mousedown', down);
-  window.addEventListener('mousemove', move);
-  window.addEventListener('mouseup', up);
-  slider.addEventListener('touchstart', down, { passive: false });
-  window.addEventListener('touchmove', move, { passive: false });
-  window.addEventListener('touchend', up);
 })();
 </script>
+{% endraw %}
 
 How RoBee came to be
 ======
 
-The drawing above is from the early days of my PhD. My labmate Homa was taping a poster of a **chameleon** above her desk (the size is exaggerated in my painting). She told me it reminded her of *adaptability* — that the hardest part of a PhD is understanding the system, accepting what you can't change, and adapting to it.
+This drawing recreates a scene from my early PhD days.
 
-That conversation stuck with me. I realized that a big chunk of the difficulty in a PhD — and well beyond it — comes from not having a clear picture of what lies ahead. Without that picture, we rely on assumptions, and when reality unfolds differently, it can be harder to absorb because we weren't prepared for it. The problem is especially acute for **under-represented communities**, who often don't have easy access to mentors who have walked the road before them.
+My labmate Homa was hanging a small chameleon picture above her desk (the size is exaggerated in the painting). She told me it reminded her of *adaptability* — because one of the biggest challenges in a PhD is learning how to **understand the system, accept what you cannot change, and adapt to uncertainty**.
 
-**RoBee** — short for **Ro**admap **B**uilding **e**xchang**e** — is an attempt to address that challenge. It's a more **scalable approach to mentorship** in which a community shares **roadmaps**: sequences of milestones toward a goal. Individual roadmaps can be merged into **graphs that visualize trajectories**, letting anyone see *all the possible paths* toward a goal, similar to how Google Maps shows you alternate routes between two points. Users can still hold one-on-one mentorship sessions on top of these roadmaps when they need a more personal conversation — RoBee just makes sure no one is starting from a blank map.
+That stayed with me.
 
-What RoBee does
-======
+Over time, I realized that one of the hardest parts of a PhD — and many career journeys beyond it — is not having a clear understanding of *what lies ahead*. We often build expectations from assumptions, and when reality unfolds differently, it becomes difficult to adapt because we were never prepared for the road itself.
 
-- **Collect** — contributors document the milestones, decisions, and detours that shaped their journey.
-- **Merge** — similar roadmaps are aligned and combined into community-built graphs, surfacing the full landscape of routes toward each goal.
-- **Share & explore** — anyone can browse, follow, or remix a roadmap relevant to where they're going.
-- **Mentor on top** — community members can hold mentorship sessions anchored to a shared roadmap, making advice concrete and goal-specific.
+I also realized that this challenge disproportionately affects **underrepresented communities**, where access to mentors, networks, and informal guidance is often limited.
+
+**RoBee** emerged from this idea: *what if career guidance could become more visible, collaborative, and scalable?*
+
+Instead of relying only on one-on-one mentorship, RoBee allows communities to share **roadmaps** — sequences of milestones toward a goal. These roadmaps can then be **merged into larger graphs that visualize multiple trajectories** toward similar destinations, much like navigation systems visualize multiple routes on a map.
+
+The goal is not to replace mentorship, but to **augment** it: to help people better understand what paths exist, what challenges may arise, and how others navigated them before. Users can still hold mentorship sessions around their roadmaps, discuss decisions, and refine paths together.
 
 The platform is being built as part of the *Mentorship Platform* project funded by the **QRDI Social Innovation Fund** (8th cycle).
 
-<a class="robee-cta" href="#coming-soon">Launch RoBee</a>
+<a class="robee-cta" href="#coming-soon">RoBee launch page</a>
