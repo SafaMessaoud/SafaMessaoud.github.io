@@ -30,37 +30,6 @@ author_profile: true
 .pub-list li.pub-item .pub-venue {
   font-weight: 700;
 }
-.pub-list li.pub-item .pub-links {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-left: 0.15rem;
-  margin-top: 0.25rem;
-  vertical-align: middle;
-}
-.pub-list li.pub-item .pub-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.12rem 0.5rem;
-  border-radius: 4px;
-  border: 1px solid var(--global-border-color, #e6e6e6);
-  background: var(--global-bg-color, #fff);
-  color: var(--global-link-color, #2f7f93) !important;
-  text-decoration: none !important;
-  transition: background .15s ease, color .15s ease, border-color .15s ease;
-  line-height: 1;
-}
-.pub-list li.pub-item .pub-link:hover {
-  background: var(--global-link-color, #2f7f93);
-  border-color: var(--global-link-color, #2f7f93);
-  color: #fff !important;
-}
-.pub-list li.pub-item .pub-link i { font-size: 0.85rem; }
 .pub-list li.pub-item .pub-note {
   font-weight: 700;
   margin-left: 0.35rem;
@@ -79,20 +48,22 @@ author_profile: true
 }
 .pub-tag {
   display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 500;
   letter-spacing: 0.02em;
-  padding: 0.15rem 0.55rem;
+  padding: 0.12rem 0.55rem;
   border-radius: 999px;
-  line-height: 1.35;
+  line-height: 1.4;
   border: 1px solid transparent;
+  opacity: 0.92;
 }
-.pub-tag[data-tag="reinforcement-learning"] { background: #eaf3ff; color: #1e40af; border-color: #c5d9f9; }
-.pub-tag[data-tag="energy-based-models"]    { background: #fff4e0; color: #92400e; border-color: #fcd9a3; }
-.pub-tag[data-tag="systems"]                { background: #e6f7ee; color: #047857; border-color: #b7e7c9; }
-.pub-tag[data-tag="computer-vision"]        { background: #f1ebfd; color: #5b21b6; border-color: #d6c7f5; }
-.pub-tag[data-tag="healthcare"]             { background: #fde7f1; color: #9d174d; border-color: #f7c4d8; }
-.pub-tag[data-tag="ml-safety"]              { background: #fde4e4; color: #991b1b; border-color: #f5b6b6; }
+/* Muted, low-contrast palette so the bold venue dominates the eye. */
+.pub-tag[data-tag="reinforcement-learning"] { background: #f4f7fc; color: #4a6791; border-color: #e2ebf6; }
+.pub-tag[data-tag="energy-based-models"]    { background: #fbf6ee; color: #8a6a30; border-color: #efe5d2; }
+.pub-tag[data-tag="systems"]                { background: #f0f7f3; color: #4a7660; border-color: #d9ead8; }
+.pub-tag[data-tag="computer-vision"]        { background: #f6f2fa; color: #6b568f; border-color: #e5dcec; }
+.pub-tag[data-tag="healthcare"]             { background: #faf2f6; color: #8c5475; border-color: #ecdae5; }
+.pub-tag[data-tag="ml-safety"]              { background: #faf2f2; color: #8c5454; border-color: #ecdada; }
 </style>
 
 {% comment %} Render publications grouped by the categories declared in _config.yml. {% endcomment %}
@@ -115,19 +86,20 @@ author_profile: true
         {% assign year_str = post.date | date: "%Y" %}
       {% endif %}
 
+      {% if post.paperurl %}
+        {% assign title_link = post.paperurl %}
+        {% assign title_target = "_blank" %}
+      {% else %}
+        {% assign title_link = post.url | prepend: base_path %}
+        {% assign title_target = "_self" %}
+      {% endif %}
+
       <li class="pub-item">
         {{ authors_html }};
-        <a class="pub-title" href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>;
+        <a class="pub-title" href="{{ title_link }}"{% if title_target == "_blank" %} target="_blank" rel="noopener"{% endif %}>{{ post.title }}</a>;
         <span class="pub-venue">{{ venue_str }}</span>;
         {{ year_str }}
-        <span class="pub-links">
-          {% if post.paperurl %}<a class="pub-link" href="{{ post.paperurl }}" target="_blank" rel="noopener" title="Paper"><i class="fas fa-file-pdf" aria-hidden="true"></i>PDF</a>{% endif %}
-          {% if post.bibtexurl %}<a class="pub-link" href="{{ post.bibtexurl }}" target="_blank" rel="noopener" title="BibTeX"><i class="fas fa-quote-right" aria-hidden="true"></i>Bib</a>{% endif %}
-          {% if post.code_url %}<a class="pub-link" href="{{ post.code_url }}" target="_blank" rel="noopener" title="Code"><i class="fas fa-code" aria-hidden="true"></i>Code</a>{% endif %}
-          {% if post.projecturl %}<a class="pub-link" href="{{ post.projecturl }}" target="_blank" rel="noopener" title="Project page"><i class="fas fa-globe" aria-hidden="true"></i>Project</a>{% endif %}
-          {% if post.slidesurl %}<a class="pub-link" href="{{ post.slidesurl }}" target="_blank" rel="noopener" title="Slides"><i class="fas fa-display" aria-hidden="true"></i>Slides</a>{% endif %}
-        </span>
-        {% if post.note %}<span class="pub-note">({{ post.note }})</span>{% endif %}
+        {% if post.note %} <span class="pub-note">({{ post.note }})</span>{% endif %}
 
         {% if post.tags and post.tags.size > 0 %}
           <div class="pub-tags">
