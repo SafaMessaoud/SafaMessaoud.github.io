@@ -11,6 +11,8 @@ I am an AI Scientist at the [Qatar Computing Research Institute (QCRI)](https://
 
 I obtained my Ph.D. in Electrical and Computer Engineering from the [University of Illinois at Urbana-Champaign](https://illinois.edu/) in 2021, advised by [Prof. Alexander G. Schwing](https://alexander-schwing.de/). Before that, I earned an M.S. from Virginia Tech and an M.S. and B.S. from the Technical University of Munich, and spent one year as a visiting scholar at UC Berkeley.
 
+My research is centred around Bayesian machine learning — including variational inference, sampling, and energy-based models — as well as reinforcement learning, and is inspired by applications in healthcare and computer vision.
+
 News
 ======
 - **May 2026** — Our paper [*Particles Don't Care About Z: Towards Scaling Entropy Estimation of Unnormalized Densities*](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=M2wXrP4AAAAJ&sortby=pubdate&citation_for_view=M2wXrP4AAAAJ:QIV2ME_5wuYC) is accepted at **ICML 2026**.

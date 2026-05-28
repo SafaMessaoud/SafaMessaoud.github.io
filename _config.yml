@@ -88,7 +88,7 @@ publication_category:
   patents:
     title: 'Patents'
   technical_reports:
-    title: 'Technical Reports'
+    title: 'Technical Reports and Thesis'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
