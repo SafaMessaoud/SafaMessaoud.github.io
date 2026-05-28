@@ -116,10 +116,10 @@ order: 4
 <figure class="robee-hero">
   <div class="ba-slider" id="robee-ba">
     <!-- Bottom layer: the FULL colour version -->
-    <img src="{{ '/images/projects/robee-story-colored.png' | relative_url }}" alt="Coloured illustration of a PhD workspace scene — student at a desk, labmate hanging a chameleon poster, bookshelf labelled DAC, DSN, Xilinx, TA Stuff.">
+    <img src="{{ '/images/projects/robee-story-colored.jpg' | relative_url }}" alt="Coloured illustration of a PhD workspace scene — student at a desk, labmate hanging a chameleon poster, bookshelf labelled DAC, DSN, Xilinx, TA Stuff.">
     <!-- Top layer: the ORIGINAL pencil sketch, clipped to the left side -->
     <div class="ba-after-wrap" id="robee-ba-wrap">
-      <img src="{{ '/images/projects/robee-story-original.png' | relative_url }}" alt="Original pencil sketch of the same workspace scene.">
+      <img src="{{ '/images/projects/robee-story-original.jpg' | relative_url }}" alt="Original pencil sketch of the same workspace scene.">
     </div>
     <span class="ba-label ba-label--before">Original</span>
     <span class="ba-label ba-label--after">Coloured</span>
