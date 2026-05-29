@@ -15,7 +15,7 @@ My research is centred around Bayesian machine learning — including variationa
 
 News
 ======
-- **New** — Check the [**RoBee**]({{ '/projects/robee/' | relative_url }}) story and **subscribe to the waiting list** for the app launch.
+- **New** — [Check RoBee story and subscribe to waiting list for app launch]({{ '/projects/robee/' | relative_url }}).
 - **May 2026** — Our paper [*Particles Don't Care About Z: Towards Scaling Entropy Estimation of Unnormalized Densities*](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=M2wXrP4AAAAJ&sortby=pubdate&citation_for_view=M2wXrP4AAAAJ:QIV2ME_5wuYC) is accepted at **ICML 2026**.
 - **January 2026** — The 2nd edition of **MenaML** at KAUST was a huge success. Read the coverage by [Arab News](https://www.arabnews.com/node/2629572/media).
 - **December 2025** — **Sakina.AI** has received the **QRDI Innolight grant** (role: advisor).

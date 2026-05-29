@@ -125,7 +125,7 @@ order: 4
     <span class="ba-label ba-label--after">Coloured</span>
     <div class="ba-handle" id="robee-ba-handle"></div>
   </div>
-  <figcaption>Drag the handle to compare the original pencil sketch with the coloured version (by Gemini) &mdash; a scene from my early PhD days, Urbana-Champaign, 2017.</figcaption>
+  <figcaption>Drag the handle to compare the original pencil sketch with the coloured version (by Gemini) &mdash; a scene from my early PhD days, Urbana-Champaign, 2014.</figcaption>
 </figure>
 
 <script>
@@ -183,22 +183,26 @@ order: 4
 How RoBee came to be
 ======
 
-This drawing recreates a scene from my early PhD days.
+This painting recreates a scene from my early PhD days.
 
-My labmate Homa was hanging a small chameleon picture above her desk (the size is exaggerated in the painting). She told me it reminded her of *adaptability* — because one of the biggest challenges in a PhD is learning how to **understand the system, accept what you cannot change, and adapt to uncertainty**.
+My labmate, Homa, was hanging a small chameleon picture above her desk (the size is admittedly exaggerated in the painting). She told me it reminded her of adaptability—one of the most important skills in a PhD. Success, she said, often comes from learning to understand the system, accept what you cannot change, and adapt to uncertainty.
 
-That stayed with me.
+That conversation stayed with me as the years unfolded.
 
-Over time, I realized that one of the hardest parts of a PhD — and many career journeys beyond it — is not having a clear understanding of *what lies ahead*. We often build expectations from assumptions, and when reality unfolds differently, it becomes difficult to adapt because we were never prepared for the road itself.
+Over time, I realized that one of the heaviest burdens of a PhD—and many ambitious career journeys beyond it—is navigating the fog of the unknown. We build expectations from assumptions, and when reality unfolds differently, adapting becomes difficult simply because we were never given a realistic view of the road ahead.
 
-I also realized that this challenge disproportionately affects **underrepresented communities**, where access to mentors, networks, and informal guidance is often limited.
+I also realized that this challenge disproportionately affects underrepresented communities, where access to mentors, networks, and informal guidance is often limited. Much of the knowledge that determines success is never written down; it is passed through casual conversations and friendships.
 
-**RoBee** emerged from this idea: *what if career guidance could become more visible, collaborative, and scalable?*
+RoBee emerged from a desire to democratize that undocumented knowledge.
 
-Instead of relying only on one-on-one mentorship, RoBee allows communities to share **roadmaps** — sequences of milestones toward a goal. These roadmaps can then be **merged into larger graphs that visualize multiple trajectories** toward similar destinations, much like navigation systems visualize multiple routes on a map.
+When navigating uncertainty, I didn’t just need a single mentor's advice. I needed a map. I wanted to see the trajectories others had taken toward their goals—the milestones they reached, the detours they encountered, and the decisions they made along the way.
 
-The goal is not to replace mentorship, but to **augment** it: to help people better understand what paths exist, what challenges may arise, and how others navigated them before. Users can still hold mentorship sessions around their roadmaps, discuss decisions, and refine paths together.
+The platform is built to do exactly that. RoBee allows individuals to share their journeys as structured roadmaps. These individual roadmaps can then be combined into larger maps that reveal multiple paths toward the same destination. By making collective experience visible, RoBee helps others explore alternatives, set realistic expectations, and make more informed decisions about their futures.
 
-The platform is being built as part of the *Mentorship Platform* project funded by the **QRDI Social Innovation Fund** (8th cycle).
+Turning this vision into reality has been a deeply collaborative journey. My close friend Fadoua, who shared a similar vision, joined me as a co-founder. Dr. Dena Al Thani provided the critical spark, encouraging us to pursue the idea through HBKU and introducing us to Younss, who completed our founding team. Today, RoBee is being developed through the Mentorship Platform project, funded by the Qatar Research, Development, and Innovation (QRDI) Council Social Innovation Fund (8th Cycle).
+
+Under the hood, RoBee is a platform designed to collect and model causal graphs. From a research perspective, we are currently working on computational methods to efficiently collect and merge these roadmaps.
+
+
 
 <a class="robee-cta" href="#coming-soon">RoBee launch page</a>
