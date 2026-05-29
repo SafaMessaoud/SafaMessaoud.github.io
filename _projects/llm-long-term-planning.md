@@ -31,4 +31,9 @@ thereby defining a complete interaction loop for training and evaluation. It fur
 
 Experiments on **psychotherapy** and **persuasive dialogue** benchmarks show that TOPAS achieves state-of-the-art performance across multiple metrics and enables planning over longer horizons — outperforming prompting-based, RLVR, and manually designed planning approaches.
 
-*This work prioritizes safety and human oversight; it is intended to augment, not replace, trained professionals. Details and publications will be added as the project develops.*
+*This work prioritizes safety and human oversight; it is intended to augment, not replace, trained professionals.*
+
+Reference
+======
+
+Saif Daoud, Mohamed Khelifi, Istabrak Abbes, Leena Babiker, Sami Ouanes, Mohammad Raza, **Safa Messaoud**. "From Textbooks to Proactive Agentic Systems: Scaling Long-Horizon Planning via Automated Agentic System Construction." *Under submission.*
