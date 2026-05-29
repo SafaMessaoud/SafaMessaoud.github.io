@@ -13,7 +13,7 @@ title                    : "Safa Messaoud"
 title_separator          : "-"
 name                     : &name "Safa Messaoud"
 description              : &description "Personal website of Safa Messaoud — Research Scientist at Qatar Computing Research Institute and Co-founder of MenaML."
-url                      : https://SafaMessaoud.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
+url                      : https://safamessaoud.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "SafaMessaoud.github.io"
@@ -142,7 +142,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Social media default site image
+og_image                 : "/images/safa.png"  # Social media default site image
 og_description           :  # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles

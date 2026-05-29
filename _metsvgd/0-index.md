@@ -20,6 +20,10 @@ Besides an introduction to SVGD, variational inference, and related topics, we a
 
 Safa Messaoud, Skander Charni, Elaa Bouazza, Ali Pourghasemi Fatideh, Halima Bensmail. [*Particles Don't Care About Z: Towards Scaling Entropy Estimation of Unnormalized Densities*](https://openreview.net/pdf?id=nVAU1aVLtY). ICML 2026.
 
+## Code
+
+The accompanying library is available on GitHub: [SafaMessaoud/MET-SVGD-Variational-Inference-With-SVGD](https://github.com/SafaMessaoud/MET-SVGD-Variational-Inference-With-SVGD).
+
 ---
 
 *Website prepared by Skander Charni.*
