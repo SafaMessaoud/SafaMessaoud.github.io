@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RoBee — A Roadmap Building Platform for Career Journeys</title>
+<meta name="description" content="RoBee is a community-driven platform for collecting, merging, and sharing career roadmaps — like Google Maps for career journeys. Join the waiting list.">
+<meta property="og:title" content="RoBee — Roadmaps for Career Journeys">
+<meta property="og:description" content="Community-built roadmaps that visualize every path toward a goal. Join the waiting list for the launch.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://robee.app">
+<link rel="icon" type="image/png" href="robee-logo.png">
+<style>
+  :root {
+    --purple: #6b3df0;
+    --purple-dark: #552bcc;
+    --lavender: #efeafe;
+    --ink: #1f2030;
+    --muted: #5d5f73;
+    --border: #e7e3f5;
+    --bg: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--purple); }
+  .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 0.6rem; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.5px; color: var(--ink); text-decoration: none; }
+  .brand img { height: 34px; width: auto; }
+  .nav-cta {
+    background: var(--purple); color: #fff !important; text-decoration: none;
+    padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; font-size: 0.92rem;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .nav-cta:hover { background: var(--purple-dark); transform: translateY(-1px); }
+
+  /* Hero */
+  .hero {
+    background: radial-gradient(1200px 500px at 70% -10%, var(--lavender), #ffffff 60%);
+    padding: 4.5rem 0 3.5rem;
+    text-align: center;
+  }
+  .pill {
+    display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--purple);
+    background: var(--lavender); border: 1px solid var(--border);
+    padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 1.25rem;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.12; margin: 0 0 1rem; letter-spacing: -0.5px; }
+  .hero h1 .grad {
+    background: linear-gradient(90deg, var(--purple), #9b6bff);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p.lead { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--muted); max-width: 680px; margin: 0 auto 2rem; }
+  .btn-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.8rem 1.5rem; border-radius: 10px; font-weight: 700; font-size: 1rem;
+    text-decoration: none; transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary { background: var(--purple); color: #fff !important; box-shadow: 0 6px 20px rgba(107,61,240,0.28); }
+  .btn-primary:hover { background: var(--purple-dark); transform: translateY(-2px); }
+  .btn-ghost { background: #fff; color: var(--purple) !important; border: 1px solid var(--border); }
+  .btn-ghost:hover { background: var(--lavender); }
+
+  /* Sections */
+  section { padding: 3.5rem 0; }
+  .section-title { text-align: center; font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 0 0 0.5rem; letter-spacing: -0.3px; }
+  .section-sub { text-align: center; color: var(--muted); max-width: 640px; margin: 0 auto 2.5rem; }
+
+  .analogy {
+    background: var(--lavender); border-radius: 16px; padding: 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
+  }
+  .analogy h2 { margin-top: 0; font-size: 1.6rem; }
+  .analogy p { color: #3c3d52; margin-bottom: 0; }
+  .analogy img { width: 100%; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,0.12); }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .card {
+    border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem; background: #fff;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.06); }
+  .card .ico {
+    width: 44px; height: 44px; border-radius: 12px; background: var(--lavender);
+    display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1rem;
+  }
+  .card h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+  .card p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+
+  /* Waitlist */
+  .waitlist { background: linear-gradient(180deg, #fff, var(--lavender)); border-top: 1px solid var(--border); }
+  .form-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 16px;
+    padding: 2rem; max-width: 760px; margin: 0 auto; box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  }
+  .form-card iframe { width: 100%; border: 0; border-radius: 8px; }
+  .form-fallback { text-align: center; margin-top: 1rem; font-size: 0.95rem; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--border); padding: 2rem 0; color: var(--muted); font-size: 0.9rem; text-align: center; }
+  footer a { font-weight: 600; }
+
+  @media (max-width: 800px) {
+    .analogy { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="robee-logo.png" alt="RoBee logo"> RoBee</a>
+    <a class="nav-cta" href="#waitlist">Join the waiting list</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="pill">Coming soon</span>
+      <h1>Find your path with<br><span class="grad">community-built roadmaps</span></h1>
+      <p class="lead">RoBee — short for <strong>Ro</strong>admap <strong>B</strong>uilding <strong>e</strong>xchang<strong>e</strong> — is a community-driven platform for collecting, merging, and sharing career roadmaps. Think <em>Google Maps for career journeys</em>.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#waitlist">Join the waiting list →</a>
+        <a class="btn btn-ghost" href="#how">How it works</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="analogy">
+        <div>
+          <h2>Like a map for where you're going</h2>
+          <p>Navigating a career — choosing a field, weighing a pivot, re-entering an industry — usually means guessing the route. RoBee turns individual journeys into a navigable atlas: contributors share the milestones and detours that shaped their path, and similar journeys merge into graphs that reveal <strong>all the possible routes toward a goal</strong>, just like a navigation system shows alternate paths between two points.</p>
+        </div>
+        <img src="robee-story.jpg" alt="Illustration of a PhD workspace — the scene that inspired RoBee.">
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <h2 class="section-title">How RoBee works</h2>
+      <p class="section-sub">A more scalable approach to mentorship — one that augments human guidance rather than replacing it.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="ico">🧭</div>
+          <h3>Collect</h3>
+          <p>Contributors document the milestones, decisions, and detours that shaped their journey toward a goal.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🔗</div>
+          <h3>Merge</h3>
+          <p>Similar roadmaps align and combine into graphs that visualize every trajectory toward similar destinations.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🤝</div>
+          <h3>Mentor</h3>
+          <p>Hold mentorship sessions anchored to a shared roadmap — discuss decisions and refine paths together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="waitlist" class="waitlist">
+    <div class="wrap">
+      <h2 class="section-title">Join the waiting list</h2>
+      <p class="section-sub">Be the first to know when RoBee launches. We'll only email you about the launch — no spam.</p>
+      <div class="form-card">
+        <!-- ===== GOOGLE FORM EMBED =====
+             Replace the iframe src below with your Google Form's embed URL:
+             In Google Forms → Send → < > (embed) → copy the src from the iframe code.
+             It looks like: https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true -->
+        <iframe
+          src="https://docs.google.com/forms/d/e/REPLACE_WITH_YOUR_FORM_ID/viewform?embedded=true"
+          height="620"
+          title="RoBee waiting list signup form">
+          Loading…
+        </iframe>
+        <p class="form-fallback">Form not loading? <a href="https://docs.google.com/forms/d/e/REPLACE_WITH_YOUR_FORM_ID/viewform" target="_blank" rel="noopener">Open the signup form in a new tab →</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>RoBee is being developed through the Mentorship Platform project, funded by the Qatar Research, Development, and Innovation (QRDI) Council — Social Innovation Fund (8th Cycle).</p>
+    <p>© <span id="year"></span> RoBee · Built by <a href="https://safamessaoud.github.io/" target="_blank" rel="noopener">Safa Messaoud</a> · <a href="https://safamessaoud.github.io/projects/robee/" target="_blank" rel="noopener">The RoBee story</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

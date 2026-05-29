@@ -205,4 +205,4 @@ Under the hood, RoBee is a platform designed to collect and model causal graphs.
 
 
 
-<a class="robee-cta" href="#coming-soon">RoBee launch page</a>
+<a class="robee-cta" href="https://robee.app" target="_blank" rel="noopener">RoBee launch page</a>
