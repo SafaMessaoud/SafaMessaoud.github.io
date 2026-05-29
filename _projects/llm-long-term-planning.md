@@ -1,18 +1,20 @@
 ---
-title: "Long-term Planning for Large Language Models"
+title: "SakinaSim"
 permalink: /projects/llm-long-term-planning/
-excerpt: "Equipping LLMs with the ability to reason over long horizons — planning, search, and credit assignment beyond single-step generation."
-image: /images/projects/llm-planning.svg
+excerpt: "A simulation platform for training mental-health providers — leveraging long-horizon LLM reasoning to evaluate whole sessions and give feedback on performance."
+image: /images/projects/topas-architecture.png
 status: "Ongoing"
 order: 2
 ---
 
-Modern large language models are excellent at single-step generation but struggle with **multi-step, long-horizon reasoning**. This ongoing project develops methods to equip LLMs with explicit planning, search, and credit-assignment mechanisms so they can solve tasks that require many coordinated steps — such as theorem proving, complex code synthesis, scientific discovery, and agentic workflows.
+**SakinaSim** is a training platform for mental-health providers. Trainees practice with a realistic, AI-simulated patient, and an AI **evaluator** observes the session and gives structured feedback on their performance — across dimensions such as content, cultural sensitivity, risk and safety, and diagnostic reasoning.
+
+What makes this hard — and what the project is really about — is **long-horizon reasoning**. Good clinical feedback can't be given turn-by-turn in isolation; it depends on the *whole* trajectory of a session: how the conversation was opened, how rapport built, whether risk was assessed at the right moment, and how the trainee adapted as the patient's state changed. SakinaSim leverages the long-horizon capabilities of large language models to assess this full arc and surface feedback a supervisor would give.
 
 Directions we are exploring include:
 
-- Search- and tree-based decoding strategies guided by learned value functions.
-- Reinforcement learning over long-horizon trajectories with sparse rewards.
-- Hybrid neuro-symbolic planners that compose LLM proposals with structured solvers.
+- Evaluating multi-turn sessions as a whole, with models that reason over the entire trajectory rather than scoring single replies.
+- Structured, multi-dimensional feedback — content, stylistic, cultural, risk & safety, diagnostic, and alternative actions.
+- Realistic patient simulation grounded in clinically meaningful cases.
 
-*Details and publications will be added as the project develops.*
+*This work prioritizes safety and human oversight; it is intended to augment supervised clinical training, not replace trained professionals. Details and publications will be added as the project develops.*

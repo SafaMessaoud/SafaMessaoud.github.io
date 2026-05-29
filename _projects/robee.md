@@ -199,7 +199,7 @@ When navigating uncertainty, I didn’t just need a single mentor's advice. I ne
 
 The platform is built to do exactly that. RoBee allows individuals to share their journeys as structured roadmaps. These individual roadmaps can then be combined into larger maps (graphs) that reveal multiple paths toward the same destination. By making collective experience visible, RoBee helps others explore alternatives, set realistic expectations, and make more informed decisions about their futures.
 
-Turning this vision into reality has been a deeply collaborative journey. My close friend Fadoua, who shared a similar vision, joined me as a co-founder. Dr. Dena Al Thani provided the critical spark, encouraging us to pursue the idea through HBKU and introducing us to Younss, who completed our founding team. Today, RoBee is being developed through the Mentorship Platform project, funded by the Qatar Research, Development, and Innovation (QRDI) Council Social Innovation Fund (8th Cycle).
+Turning this vision into reality has been a deeply collaborative journey. My dear friend Fadoua, who shared a similar vision, joined me as a co-founder. Dr. Dena Al Thani provided the critical spark, encouraging us to pursue the idea through HBKU and introducing us to Younss, who completed our founding team. Today, RoBee is being developed through the Mentorship Platform project, funded by the Qatar Research, Development, and Innovation (QRDI) Council Social Innovation Fund (8th Cycle).
 
 Under the hood, RoBee is a platform designed to collect and model causal graphs. From a research perspective, we are currently working on computational methods to efficiently collect and merge these roadmaps.
 
