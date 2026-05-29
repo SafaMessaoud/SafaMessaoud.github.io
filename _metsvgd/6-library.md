@@ -1,5 +1,9 @@
-(sec6)=
-# Library
+---
+title: "Library"
+nav_title: "Library"
+permalink: /met-svgd/library/
+nav_order: 6
+---
 
 ## Installation
 
@@ -103,17 +107,17 @@ def __init__(
 
 `target_distribution` and `initial_distribution` are explained in depth in the next section.
 
-Using the RBF kernel is explained in the Quickstart example, and creating custom bandwidths and step-sizes is shown with examples in [Section 5](#sec5-ck).
+Using the RBF kernel is explained in the Quickstart example, and creating custom bandwidths and step-sizes is shown with examples in [Section 5](/met-svgd/library/#sec5-ck).
 
 `divergence_control` can be either of `None`, or `metropolis-hastings`.
 
 `bound_lr` controls whether the step-size condition is applied.
 
-`ij_term_density` controls whether the [trace-of-Hessian term](#sec3-tr) is computed.
+`ij_term_density` controls whether the [trace-of-Hessian term](/met-svgd/density/#sec3-tr) is computed.
 
 `track_convergence` indicates whether or not to compute `self.stein_identity`. Useful with `Callback`s.
 
-`callbacks` is an array of `Callback`s. This is explained in [Section 6](#sec6-cb).
+`callbacks` is an array of `Callback`s. This is explained in [Section 6](/met-svgd/library/#sec6-cb).
 
 `leaky_lr_clamp` indicates whether the `lr_bound` is a hard `clamp` or not. Hard clamping kills gradient flow at the extremes.
 
@@ -217,8 +221,7 @@ class InitialDiagonalGMM(InitialDistribution, Module):
         )
 ```
 
-(sec5-ck)=
-## Custom Kernel Bandwidths and Step-Sizes
+## Custom Kernel Bandwidths and Step-Sizes {#sec5-ck}
 
 ```python
 from svgd.lrs import LR
@@ -233,7 +236,7 @@ from typing_extensions import Union, List
 
 The RBF kernel is defined as $$k(x,y) = \exp\left(-\frac{1}{2\sigma^2}||x-y||^2\right).$$
 
-In this library, $\sigma$ is defined as a class that implements the `KP` interface available at `svgd.kernels.parameters`. The interface only requires that a forward method be implemented. It takes `state: StateForKernel` and `**kwargs` as attributes. `state` lists the available quantities on the `SVGD` object.
+In this library, {::nomarkdown}$\sigma${:/nomarkdown} is defined as a class that implements the `KP` interface available at `svgd.kernels.parameters`. The interface only requires that a forward method be implemented. It takes `state: StateForKernel` and `**kwargs` as attributes. `state` lists the available quantities on the `SVGD` object.
 
 `sigma` must be a `(b1, ..., bm)` tensor.
 
@@ -253,8 +256,8 @@ class CustomSigma(KP, Module):
         return self.log_sigma[state.step].clamp(-10, 10).exp()
 ```
 
-In other cases, your $\sigma$ will be parametrized by a neural network (e.g. reinforcement learning).
-In this case, we can't just inspect the weights to get the current sigma values as we would do with a `Parameter` $\sigma$, since every evaluation gives a different one, but we can track the values the network outputted throughout the SVGD steps.
+In other cases, your {::nomarkdown}$\sigma${:/nomarkdown} will be parametrized by a neural network (e.g. reinforcement learning).
+In this case, we can't just inspect the weights to get the current sigma values as we would do with a `Parameter` {::nomarkdown}$\sigma${:/nomarkdown}, since every evaluation gives a different one, but we can track the values the network outputted throughout the SVGD steps.
 To that end, you could implement a logger wrapper class.
 
 ```python
@@ -336,8 +339,7 @@ class CustomLR(LR, Module):
         return self.log_lr[state.step].clamp(-10, state.x.shape[-2]).exp()
 ```
 
-(sec6-cb)=
-## Callbacks
+## Callbacks {#sec6-cb}
 
 `Callback` is an abstract `class` defined as:
 ```python
