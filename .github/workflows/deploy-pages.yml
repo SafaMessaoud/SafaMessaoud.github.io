@@ -46,6 +46,7 @@ jobs:
 
       - name: Build MyST site
         working-directory: met_svgd_website
+        continue-on-error: true   # don't block the main-site deploy if MyST fails
         env:
           BASE_URL: /met-svgd
         run: |
