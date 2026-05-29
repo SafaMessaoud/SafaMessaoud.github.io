@@ -15,3 +15,11 @@ Besides an introduction to SVGD, variational inference, and related topics, we a
 - Section 4: [MET-SVGD Optimizations](/met-svgd/optimizations/)
 - Section 5: [Results](/met-svgd/results/)
 - Section 6: [Library Documentation](/met-svgd/library/)
+
+## Reference
+
+Safa Messaoud, Skander Charni, Elaa Bouazza, Ali Pourghasemi Fatideh, Halima Bensmail. [*Particles Don't Care About Z: Towards Scaling Entropy Estimation of Unnormalized Densities*](https://openreview.net/pdf?id=nVAU1aVLtY). ICML 2026.
+
+---
+
+*Website prepared by Skander Charni.*
