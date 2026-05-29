@@ -2,7 +2,7 @@
 title: "Variational Inference Meets Sampling"
 permalink: /projects/variational-inference-meets-sampling/
 excerpt: "Bridging variational inference and sampling-based methods for scalable, multi-modal posterior approximation."
-image: /images/projects/vi-sampling.svg
+image: /images/projects/vi-taxonomy.png
 external_url: "/met-svgd/"
 status: "Ongoing"
 order: 1
