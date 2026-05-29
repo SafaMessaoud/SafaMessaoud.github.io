@@ -170,6 +170,7 @@ exclude:
   - .asset-cache
   - .bundle
   - .github
+  - met_svgd_website        # MyST source — built output is committed separately to /met-svgd/
   - .jekyll-assets-cache
   - .sass-cache
   - assets/js/_main.js
