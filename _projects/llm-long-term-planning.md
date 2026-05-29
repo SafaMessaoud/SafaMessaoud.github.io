@@ -1,20 +1,20 @@
 ---
-title: "SakinaSim"
+title: "Long-horizon Planning with LLMs"
 permalink: /projects/llm-long-term-planning/
-excerpt: "A simulation platform for training mental-health providers — leveraging long-horizon LLM reasoning to evaluate whole sessions and give feedback on performance."
+excerpt: "Equipping LLMs with the ability to reason over long horizons beyond a single step generation."
 image: /images/projects/topas-architecture.png
 status: "Ongoing"
 order: 2
 ---
 
-**SakinaSim** is a training platform for mental-health providers. Trainees practice with a realistic, AI-simulated patient, and an AI **evaluator** observes the session and gives structured feedback on their performance — across dimensions such as content, cultural sensitivity, risk and safety, and diagnostic reasoning.
+Modern large language models are excellent at single-step generation but struggle to **reason over long horizons** — to plan a sequence of actions, anticipate how a conversation will unfold, and adjust course based on what happens many steps later. This ongoing project develops methods that equip LLMs with explicit planning, search, and credit-assignment mechanisms so they can act as **goal-directed agents** rather than next-token predictors.
 
-What makes this hard — and what the project is really about — is **long-horizon reasoning**. Good clinical feedback can't be given turn-by-turn in isolation; it depends on the *whole* trajectory of a session: how the conversation was opened, how rapport built, whether risk was assessed at the right moment, and how the trainee adapted as the patient's state changed. SakinaSim leverages the long-horizon capabilities of large language models to assess this full arc and surface feedback a supervisor would give.
+We study these questions in the context of **mental-health support**, where long-horizon reasoning matters most: a supportive agent must hold a goal over an entire conversation (and across sessions), choose what to say now in light of where the interaction should go, and adapt gently as the person's state changes — never optimizing for a single reply in isolation.
 
 Directions we are exploring include:
 
-- Evaluating multi-turn sessions as a whole, with models that reason over the entire trajectory rather than scoring single replies.
-- Structured, multi-dimensional feedback — content, stylistic, cultural, risk & safety, diagnostic, and alternative actions.
-- Realistic patient simulation grounded in clinically meaningful cases.
+- Planning and search over multi-turn dialogue, guided by learned value functions that reflect long-term wellbeing rather than immediate engagement.
+- Reinforcement learning over long-horizon trajectories with sparse, delayed feedback.
+- Safeguards and credit assignment that keep an agent's long-term plan aligned with the person's needs.
 
-*This work prioritizes safety and human oversight; it is intended to augment supervised clinical training, not replace trained professionals. Details and publications will be added as the project develops.*
+*This work prioritizes safety and human oversight; it is intended to augment, not replace, trained professionals. Details and publications will be added as the project develops.*
