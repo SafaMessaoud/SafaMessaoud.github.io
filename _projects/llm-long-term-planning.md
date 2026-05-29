@@ -7,14 +7,28 @@ status: "Ongoing"
 order: 2
 ---
 
-Modern large language models are excellent at single-step generation but struggle to **reason over long horizons** — to plan a sequence of actions, anticipate how a conversation will unfold, and adjust course based on what happens many steps later. This ongoing project develops methods that equip LLMs with explicit planning, search, and credit-assignment mechanisms so they can act as **goal-directed agents** rather than next-token predictors.
+<figure style="margin: 0.5rem 0 1.75rem 0;">
+  <img src="{{ '/images/projects/topas-architecture.png' | relative_url }}"
+       alt="TOPAS architecture: textbooks and unlabeled data feed the TOPAS framework, which builds a proactive agentic system comprising a hierarchical planner, a graph-based memory, a dialog LLM, and a user simulator."
+       style="width:100%; height:auto; border:1px solid #e7e3d8; border-radius:8px;">
+  <figcaption style="margin-top:0.5rem; font-size:0.85rem; font-style:italic; color:#777; text-align:center;">
+    TOPAS builds a structured agentic system for long-horizon dialogue planning from intervention-oriented domain textbooks.
+  </figcaption>
+</figure>
 
-We study these questions in the context of **mental-health support**, where long-horizon reasoning matters most: a supportive agent must hold a goal over an entire conversation (and across sessions), choose what to say now in light of where the interaction should go, and adapt gently as the person's state changes — never optimizing for a single reply in isolation.
+TOPAS: Textbooks to Proactive Agentic Systems
+======
 
-Directions we are exploring include:
+Large language models (LLMs) excel at generating locally coherent responses but remain fundamentally *reactive*, lacking the ability to plan and steer interactions over long horizons. Existing approaches attempt to induce proactivity through prompting or reinforcement learning with verifiable rewards (RLVR), which we show degrade on long-horizon dialogue tasks. A natural solution is to augment LLMs with planners, memory, and user simulators — however, specifying these components and their interactions requires substantial expert design effort, thereby limiting scalability.
 
-- Planning and search over multi-turn dialogue, guided by learned value functions that reflect long-term wellbeing rather than immediate engagement.
-- Reinforcement learning over long-horizon trajectories with sparse, delayed feedback.
-- Safeguards and credit assignment that keep an agent's long-term plan aligned with the person's needs.
+We address this challenge by introducing **TOPAS** (**T**extbooks t**O** **P**roactive **A**gentic **S**ystems), a framework for automatically constructing executable agentic systems from intervention-based domain textbooks. Given unstructured instructional textbooks, TOPAS jointly derives:
+
+- a **hierarchical planner** over a structured decision space (states, actions, and rewards),
+- a **user simulator**, and
+- a **graph-based memory** structure,
+
+thereby defining a complete interaction loop for training and evaluation. It further generates structured supervision via **uncertainty-aware self-annotation** and learns hierarchical policies over the extracted structure using **reinforcement learning**.
+
+Experiments on **psychotherapy** and **persuasive dialogue** benchmarks show that TOPAS achieves state-of-the-art performance across multiple metrics and enables planning over longer horizons — outperforming prompting-based, RLVR, and manually designed planning approaches.
 
 *This work prioritizes safety and human oversight; it is intended to augment, not replace, trained professionals. Details and publications will be added as the project develops.*
