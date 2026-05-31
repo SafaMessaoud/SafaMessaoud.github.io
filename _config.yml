@@ -235,9 +235,6 @@ collections:
   projects:
     output: true
     permalink: /:collection/:path/
-  metsvgd:
-    output: true
-    permalink: /met-svgd/:path/
 
 
 # These settings control how pages and collections are included in the site
@@ -303,13 +300,6 @@ defaults:
       layout: single
       author_profile: true
       share: true
-  # _metsvgd
-  - scope:
-      path: ""
-      type: metsvgd
-    values:
-      layout: metsvgd
-      author_profile: false
 
 
 # Sass/SCSS
